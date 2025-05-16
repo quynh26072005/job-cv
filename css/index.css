@@ -1,0 +1,441 @@
+/* Reset some default styles */
+body, h1, h2, p, ul, li, a {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+}
+
+/* Body styling */
+body {
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+    margin: 0;
+    font-family: "Lato", "Quicksand", sans-serif;
+}
+
+/**************************************************************** Header  */
+.main-header {
+  background-color: #ff4000;
+  color: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+}
+
+.left-section {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 40px;
+  margin-right: 50px;
+}
+
+.main-nav{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-left: 1px solid #b4a7a7;
+    height: 100%;
+    padding: 15px 10px;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.right-section a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.right-section{
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+.login-link{
+    border-right: 1px solid #b4a7a7;
+    height: 100%;
+    padding: 15px 15px;
+}
+/**************************************************************** End Header  */
+
+/* Slide Show Styling */
+#slide-show {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+
+#slide-show img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  max-width: 1920px;
+  object-position: center center;
+}
+
+#slide-show img.active {
+  opacity: 1;
+}
+
+#slide-dots {
+  position: absolute;
+  bottom: 15px;
+  width: 100%;
+  text-align: center;
+  z-index: 10;
+}
+
+#slide-dots .dot {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 5px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#slide-dots .dot.active {
+  background-color: #fff;
+}
+
+/* End slide css  *********************************************************************************************/
+
+/* Section filter *********************************************************************************************/
+#filter-container{
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 7px rgba(0, 0, 0, 0.2);
+    padding: 20px 20px;
+    background: white;
+    margin-bottom: 10px;
+}
+
+#filter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.9);
+    border-radius: 10px;
+}
+
+#filter > input,
+#filter > .dropdown{
+  width: 29%;
+  padding: 5px 10px;
+  border: none;
+}
+
+#filter > .dropdown{
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+#filter > button{
+  width: 10%;
+  background-color: rgb(255, 102, 0);
+  border-radius: 4px;
+  color: white;
+  border: none;
+  font-weight: 700;
+}
+
+#filter  > .dropdown > a{
+  color: black;
+}
+
+#job-icon{
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+.job-icon-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.job-icon-list li{
+    width: 10%;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-icon-list li img{
+    width: 40%;
+}
+
+.job-icon-list li:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* End section filter  *********************************************************************************************/
+
+
+/* Section job hotlist *********************************************************************************************/
+#job-hot {
+  padding: 40px 20px;
+  background: #f8f9fc;
+}
+
+#job-hot .container {
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+#job-hot h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#job-hot h2 i {
+  color: orange;
+  margin-right: 8px;
+}
+
+.job-hot-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.tag {
+  background: #eee;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.tag.active {
+  background: #5d87ff;
+  color: white;
+}
+
+.job-listings {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 cột cố định */
+  gap: 20px;
+}
+
+.job-card {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-1px) scale(1.02); ;
+  border: 1px solid #ff3300;
+}
+
+.job-title {
+  font-weight: bold;
+  font-size: 16px;
+  color: #e60023;
+  margin-bottom: 8px;
+}
+
+.job-company {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 8px;
+}
+
+.job-salary,
+.job-location {
+  font-size: 14px;
+  margin-bottom: 5px;
+}
+
+.job-footer {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+  color: #555;
+  margin-top: 10px
+}
+
+/* End section job hotlist  *********************************************************************************************/
+
+/* Featured-companies *********************************************************************************************/
+.featured-companies {
+  padding: 40px 20px;
+  background-color: #ffffff;
+  max-width: 1200px;
+  margin: 0 auto;
+  border: 1px solid #edeaea;
+  border-radius: 10px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.company-list {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 10px;
+  scrollbar-width: none; /* Firefox */
+}
+
+.company-list::-webkit-scrollbar {
+  display: none; /* Chrome */
+}
+
+.company-card {
+  min-width: 160px;
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  flex-shrink: 0;
+}
+
+.company-card img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+/* End section featured-companies  *********************************************************************************************/
+
+/* Section career-guide *********************************************************************************************/
+.career-guide {
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.guide-title {
+  font-size: 24px;
+  margin-bottom: 32px;
+  font-weight: bold;
+}
+
+.guide-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+.guide-card {
+  background-color: #f8f8ff;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: left;
+}
+
+.guide-card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.guide-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.guide-card p {
+  font-size: 14px;
+  color: #555;
+}
+
+.guide-button {
+  margin-top: 10px;
+}
+
+.btn-purple {
+  background-color: #a678e2;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* End section career-guide  *********************************************************************************************/
+
+
+/***************************************************************** Footer  */
+footer {
+    padding: 1rem 0;
+    background: #ff0101;
+    color: #fff;
+    font-size: 0.875rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-container{
+    display: flex;
+    flex-direction: row;
+} 
+
+.footer-container .About-me {
+  max-width: 39%;
+  padding: 10px 10px;
+}
+
+.footer-container .Infor {
+  max-width: 39%;
+}
+
+.footer-container .Contact {
+  max-width: 19%;
+}
+
+.topcv{
+  border-top: 2px solid #fff;
+  width: 100%;
+}
+/**************************************************************** End Footer  */
