@@ -1,0 +1,236 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.company-banner {
+    position: relative;
+    height: 400px;
+    background-image: url('/images/company.jpg'); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #333;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.company-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: rgba(255, 255, 255, 0.9); /* Slight background for readability */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.company-logo {
+    width: 100px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.company-details {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    min-width: 600px;
+}
+
+.location, .website {
+    font-size: 14px;
+    color: #555;
+}
+
+.website {
+    color: #1a73e8;
+    text-decoration: none;
+}
+
+.website:hover {
+    text-decoration: underline;
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.follow-btn, .share-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.follow-btn {
+    background-color: #6b21a8;
+    color: white;
+}
+
+.share-btn {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.follow-btn:hover {
+    background-color: #5b1a8e;
+}
+
+.share-btn:hover {
+    background-color: #d0d0d0;
+}
+
+
+/* Company infor section **************************************************************/
+.company-info {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.company-info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.company-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+.company-address {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.company-description, .company-details {
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    font-size: 14px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more span {
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+/* End of Company infor section **************************************************************/
+
+/* Company position section **************************************************************/
+.company-positions {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.company-positions h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.position {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.position-details {
+    flex-grow: 1;
+}
+
+.position-details h3 {
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+    margin: 0 0 5px;
+}
+
+.position-details p {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+}
+
+.position-details .salary {
+    color: #28a745;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.position-details .location {
+    margin-right: 10px;
+}
+
+.position-meta {
+    font-size: 12px;
+    color: #999;
+}
+
+.position-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.position-actions .heart {
+    font-size: 20px;
+    color: #007bff;
+    cursor: pointer;
+}
+
+.position-actions .days-left {
+    font-size: 12px;
+    color: #999;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.position-actions .days-left .clock {
+    font-size: 14px;
+}
+
+/* End of Company position section **************************************************************/

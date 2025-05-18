@@ -18,8 +18,11 @@ body {
 
 /**************************************************************** Header  */
 .main-header {
-  background-color: #ff4000;
+  background-color: rgb(255, 102, 0);
   color: white;
+  position: fixed;
+  z-index: 1000;
+  width: 100%;
 }
 
 .container {
@@ -282,6 +285,10 @@ body {
   margin-bottom: 8px;
 }
 
+.job-salary{
+  color: rgb(255, 102, 0);
+}
+
 .job-salary,
 .job-location {
   font-size: 14px;
@@ -375,7 +382,9 @@ body {
 }
 
 .guide-card img {
-  width: 100%;
+  width: 350px;
+  height: 170px;
+  object-fit: cover;
   border-radius: 8px;
   margin-bottom: 16px;
 }
@@ -409,7 +418,7 @@ body {
 /***************************************************************** Footer  */
 footer {
     padding: 1rem 0;
-    background: #ff0101;
+    background: rgb(255, 102, 0);
     color: #fff;
     font-size: 0.875rem;
     display: flex;
@@ -419,23 +428,28 @@ footer {
 .footer-container{
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
 } 
 
 .footer-container .About-me {
-  max-width: 39%;
-  padding: 10px 10px;
+  max-width: 30%;
 }
 
 .footer-container .Infor {
-  max-width: 39%;
+  max-width: 30%;
 }
 
 .footer-container .Contact {
-  max-width: 19%;
+  max-width: 15%;
 }
 
 .topcv{
   border-top: 2px solid #fff;
   width: 100%;
+  text-align: center;
+  padding: 7px 0;
 }
 /**************************************************************** End Footer  */

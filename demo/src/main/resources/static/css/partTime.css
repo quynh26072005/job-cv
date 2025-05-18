@@ -1,0 +1,93 @@
+
+.main-header{
+    top: 0;
+}
+
+.section-part-time {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    margin-top: 90px;
+}
+.title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+}
+.meta {
+    font-size: 14px;
+    color: #666;
+    margin: 5px 0;
+}
+.meta a {
+    color: #007bff;
+    text-decoration: none;
+}
+.description {
+    font-size: 16px;
+    margin: 10px 0;
+}
+.section-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+}
+.content-box {
+    background-color: #f0f5ff;
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 16px;
+}
+.content-box ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+}
+.content-box li {
+    margin-bottom: 10px;
+}
+
+/* Section part-time content **********************************************************************/
+.part-time-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    text-align: left;
+}
+.part-time-content h1 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+.part-time-content img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.part-time-content h3 {
+    font-size: 16px;
+    font-weight: normal;
+    color: #666;
+    margin-bottom: 10px;
+}
+.part-time-content p {
+    font-size: 18px;
+    color: #333;
+    line-height: 1.6;
+}
+.tag {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #e0e7ff;
+    color: #4f46e5;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* End of section part-time content **********************************************************************/
