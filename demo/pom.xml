@@ -27,7 +27,7 @@
 		<url/>
 	</scm>
 	<properties>
-		<java.version>21</java.version>
+		<java.version>17</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -41,7 +41,8 @@
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
-			<version>12.6.1.jre21</version> <!-- hoặc phiên bản phù hợp với JDK của bạn -->
+			<version>11.2.3.jre17</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>

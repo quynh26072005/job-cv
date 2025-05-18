@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +14,7 @@
       <div class="left-section">
 
         
-        <a href="index.html"><img class="logo" src="/images/logo.jpg" alt="Logo" ></a>
+        <a href="/home"><img class="logo" src="/images/logo.jpg" alt="Logo" ></a>
 
         <nav class="main-nav">
           <a href="#">Cơ hội việc làm</a>
@@ -30,7 +30,15 @@
       </div>
 
       <div class="right-section">
-        <a href="login.html" class="login-link">Đăng ký/Đăng nhập</a>
+
+        <div th:if="${session.account == null}">
+          <a href="/login" class="login-link">Đăng ký/Đăng nhập</a>
+        </div>
+        <div th:if="${session.account != null}">
+          <span th:text="'Xin chào, ' + ${session.account.username}"></span>
+          <a href="/logout" class="login-link">Đăng xuất</a>
+        </div>
+
         <a href="#" class="employer-link">
           <i class="fa-solid fa-briefcase"></i>
           Nhà Tuyển Dụng
@@ -279,17 +287,17 @@
 <section class="career-guide">
   <h2 class="guide-title">Cẩm nang nghề nghiệp</h2>
   <div class="guide-cards">
-    <a href="/view/partTime.html" class="guide-card">
+    <a href="/partTime" class="guide-card">
       <img src="/images/img-partime.png" alt="Guide 1">
       <h3>Nhân viên part time là gì?...</h3>
       <p>Nhân viên part time là gì? Nếu bạn đang...</p>
     </a>
-    <a href="/view/remote.html"   class="guide-card">
+    <a href="/remote"   class="guide-card">
       <img src="/images/img-remote.png" alt="Guide 2">
       <h3>Top 7 việc làm remote phổ biến...</h3>
       <p>Làm remote là gì và có lợi ích như thế nào?</p>
     </a>
-    <a href="/view/jobb.html"  class="guide-card">
+    <a href="/jobb"  class="guide-card">
       <img src="/images/img-jobb.webp" alt="Guide 3">
       <h3>Top việc làm thêm ngoài giờ...</h3>
       <p>Cần lưu ý gì khi tìm việc làm thêm ngoài giờ?</p>

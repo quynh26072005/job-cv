@@ -1,9 +1,9 @@
 package com.example.demo.controller;
 
-import com.example.demo.dto.Account;
+import com.example.demo.dto.User;
 import com.example.demo.service.AccountService;
 import jakarta.servlet.http.HttpSession;
-import org.apache.catalina.User;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,16 +11,18 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
+@RequiredArgsConstructor
 public class AuthController {
 
-    private final AccountService accountService = new AccountService();
+    private final AccountService accountService ;
 
     @PostMapping("/doLogin")
     public String login(@RequestParam String username,
                         @RequestParam String password,
                         HttpSession session,
                         Model model) {
-        Account acc = accountService.login(username, password);
+        System.out.println("Login attempt with username: " + username);
+        User acc = accountService.login(username, password);
         if (acc != null) {
             session.setAttribute("account", acc);
             return "redirect:/home";
@@ -35,7 +37,7 @@ public class AuthController {
                            @RequestParam String password,
                            @RequestParam String email,
                            Model model) {
-        Account acc = new Account();
+        User acc = new User();
         acc.setUsername(username);
         acc.setPassword(password);
         acc.setEmail(email);
@@ -48,4 +50,11 @@ public class AuthController {
         }
         return "login";
     }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate(); // Xóa toàn bộ session
+        return "redirect:/home"; // Trở về trang chủ
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.example.demo.dao;
 
-import com.example.demo.dto.Account;
+import com.example.demo.dto.User;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -12,16 +12,17 @@ import java.util.List;
 
 @Repository
 public class AccountDAO  extends  JDBCUtil{
-    public List<Account> findAll() {
-        List<Account> accounts = new ArrayList<>();
-        String sql = "SELECT * FROM Account";
+
+    public List<User> findAll() {
+        List<User> accounts = new ArrayList<>();
+        String sql = "SELECT * FROM Users";
 
         try (Connection conn = JDBCUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                Account acc = new Account();
+                User acc = new User();
                 acc.setUserId(rs.getInt("user_id"));
                 acc.setUsername(rs.getString("username"));
                 acc.setPassword(rs.getString("password_hash"));
@@ -36,7 +37,7 @@ public class AccountDAO  extends  JDBCUtil{
         return accounts;
     }
 
-    public boolean create(Account account) {
+    public boolean create(User account) {
         String sql = "INSERT INTO Users (username, password_hash, email) VALUES (?, ?, ?)";
 
         try (Connection conn = JDBCUtil.getConnection();
@@ -55,15 +56,15 @@ public class AccountDAO  extends  JDBCUtil{
         }
     }
 
-    public Account findByUsername(String username) {
-        String sql = "SELECT * FROM Account WHERE username = ?";
+    public User findByUsername(String username) {
+        String sql = "SELECT * FROM Users WHERE username = ?";
         try (Connection conn = JDBCUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, username);
             try (ResultSet rs = stmt.executeQuery()) {
                 if (rs.next()) {
-                    Account acc = new Account();
+                    User acc = new User();
                     acc.setUserId(rs.getInt("user_id"));
                     acc.setUsername(rs.getString("username"));
                     acc.setPassword(rs.getString("password_hash"));
