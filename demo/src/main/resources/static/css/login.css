@@ -398,3 +398,11 @@ form.sign-in-form {
     left: 50%;
   }
 }
+
+.select-role{
+  border: none;
+  background-color: #f0f0f0;
+  color: #acacac;
+  transition: 0.5s;
+  font-size: 1.1rem;
+}

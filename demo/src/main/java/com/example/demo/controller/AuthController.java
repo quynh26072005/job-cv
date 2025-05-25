@@ -36,13 +36,16 @@ public class AuthController {
     public String register(@RequestParam String username,
                            @RequestParam String password,
                            @RequestParam String email,
+                           @RequestParam String role, // <-- thêm dòng này
                            Model model) {
+
         User acc = new User();
         acc.setUsername(username);
         acc.setPassword(password);
         acc.setEmail(email);
 
-        boolean success = accountService.register(acc);
+        boolean success = accountService.register(acc, role); // <-- truyền role
+
         if (success) {
             model.addAttribute("success", "Register successful! Please login.");
         } else {
@@ -50,6 +53,7 @@ public class AuthController {
         }
         return "login";
     }
+
 
     @GetMapping("/logout")
     public String logout(HttpSession session) {

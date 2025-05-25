@@ -1,10 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FinFlow Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link rel="stylesheet" href="/css/admin.css" />
 </head>
 <body>
+<!-- Sidebar -->
+<div class="sidebar">
+    <div class="logo">
+        <img src="/images/logo-admin.png" alt="FinFlow Logo" class="logo-img" style="width: 50px; height: 50px;" />
+        <h1 class="logo-text">Top-CV</h1>
+    </div>
 
+    <div class="nav-menu">
+        <a href="#" class="nav-item active" data-content="dashboard">
+            <i class="fas fa-home"></i>
+            <span>Bảng tin</span>
+        </a>
+        <a href="#" class="nav-item " data-content="candidates">
+            <i class="fa-solid fa-handshake"></i>
+            <span>Danh sách ứng viên</span>
+        </a>
+        <a href="#" class="nav-item" data-content="recruitment">
+            <i class="fa-solid fa-file-word"></i>
+            <span>Tin tuyển dụng</span>
+        </a>
+        <a href="#" class="nav-item" data-content="posts">
+            <i class="fa-solid fa-envelopes-bulk"></i>
+            <span>Bài viết</span>
+        </a>
+        <a href="#" class="nav-item" data-content="messages">
+            <i class="fas fa-comment-dots"></i>
+            <span>Tin nhắn</span>
+        </a>
+        <a href="#" class="nav-item" data-content="settings">
+            <i class="fa-solid fa-sliders"></i>
+            <span>Cài đặt</span>
+        </a>
+        <a href="/home" class="nav-item">
+            <i class="fa-solid fa-house"></i>
+            <span>Trang chủ</span>
+        </a>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div class="main-content">
+    <!-- Header -->
+    <div class="header">
+        <div class="welcome-section">
+            <p class="greeting">Xin chào, Nhà Tuyển Dụng,</p>
+            <h1 class="welcome-title" id="welcome-title">Thống kê</h1>
+        </div>
+
+        <div class="header-right">
+            <div class="notification-bell">
+                <i class="fas fa-bell"></i>
+                <div class="notification-indicator"></div>
+            </div>
+
+            <div class="user-profile">
+                <img src="/images/img-content-parttime2.webp" alt="Alex Morgan" class="profile-pic" />
+            </div>
+
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Find transactions..." />
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content-area">
+        <!-- Danh sách ứng viên (Mặc định) -->
+        <div class="content-section" id="candidates">
+            <div class="dashboard-main">
+                <h3 class="section-title">Danh sách ứng viên</h3>
+                <div class="candidate-list">
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate1.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Nguyễn Văn Huy</div>
+                            <div class="candidate-position">Nhân viên bán hàng siêu thị</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: Today, 08:15
+                            </div>
+                            <div class="candidate-status approved">Đã duyệt</div>
+                        </div>
+                    </div>
+
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate2.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Lê Thị Bích</div>
+                            <div class="candidate-position">Nhân viên chăm sóc khách hàng</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: Monday, 17:45
+                            </div>
+                            <div class="candidate-status pending">Chờ duyệt</div>
+                        </div>
+                    </div>
+
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate3.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Phạm Minh Tuấn</div>
+                            <div class="candidate-position">Nhân viên kỹ thuật IT</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: Yesterday, 10:30
+                            </div>
+                            <div class="candidate-status rejected">Đã từ chối</div>
+                        </div>
+                    </div>
+
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate4.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Hoàng Thanh Tùng</div>
+                            <div class="candidate-position">Nhân viên giao hàng</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: 2 days ago, 16:00
+                            </div>
+                            <div class="candidate-status pending">Chờ duyệt</div>
+                        </div>
+                    </div>
+
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate5.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Trần Quỳnh Anh</div>
+                            <div class="candidate-position">Nhân viên thiết kế đồ họa</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: Today, 11:05
+                            </div>
+                            <div class="candidate-status approved">Đã duyệt</div>
+                        </div>
+                    </div>
+
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate6.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Đỗ Văn Lâm</div>
+                            <div class="candidate-position">Nhân viên kho</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: Friday, 13:45
+                            </div>
+                            <div class="candidate-status pending">Chờ duyệt</div>
+                        </div>
+                    </div>
+
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate7.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Vũ Thị Hạnh</div>
+                            <div class="candidate-position">Nhân viên lễ tân khách sạn</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: Yesterday, 09:20
+                            </div>
+                            <div class="candidate-status approved">Đã duyệt</div>
+                        </div>
+                    </div>
+
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate8.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Nguyễn Tuấn Kiệt</div>
+                            <div class="candidate-position">Nhân viên pha chế</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: 3 days ago, 18:40
+                            </div>
+                            <div class="candidate-status pending">Chờ duyệt</div>
+                        </div>
+                    </div>
+
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate9.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Lương Thị Hoa</div>
+                            <div class="candidate-position">Nhân viên thu ngân</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: Sunday, 15:25
+                            </div>
+                            <div class="candidate-status pending">Chờ duyệt</div>
+                        </div>
+                    </div>
+
+                    <div class="candidate-item">
+                        <div class="candidate-icon">
+                            <img src="/images/candidate/candidate10.jpg" alt="Candidate Avatar" />
+                        </div>
+                        <div class="candidate-content">
+                            <div class="candidate-name">Đinh Văn Nam</div>
+                            <div class="candidate-position">Nhân viên bảo vệ</div>
+                            <div class="candidate-time">
+                                <i class="far fa-clock"></i> Ứng tuyển: Today, 07:50
+                            </div>
+                            <div class="candidate-status pending">Chờ duyệt</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Bảng tin (Dashboard mặc định ban đầu) -->
+        <div class="content-section active" id="dashboard">
+            <div class="dashboard-main">
+                <div class="transfer-cards">
+                    <div class="transfer-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-users-line"></i>
+                        </div>
+                        <p class="card-title">Số lượng ứng viên ứng tuyển</p>
+                        <h2 class="card-amount">478</h2>
+                    </div>
+                    <div class="transfer-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-file"></i>
+                        </div>
+                        <p class="card-title">Bài đăng tuyển</p>
+                        <h2 class="card-amount">47</h2>
+                    </div>
+                    <div class="transfer-card">
+                        <div class="card-icon">
+                            <i class="fa-solid fa-file-lines"></i>
+                        </div>
+                        <p class="card-title">Bài viết</p>
+                        <h2 class="card-amount">29</h2>
+                    </div>
+                </div>
+
+                <div class="transaction-section">
+                    <div class="transaction-card">
+                        <h3 class="section-title">Bài đăng gần đây</h3>
+                        <div class="transaction-item">
+                            <div class="transaction-icon">
+                                <i class="fas fa-hamburger"></i>
+                            </div>
+                            <div class="transaction-content">
+                                <div class="transaction-title">Nhân viên bán KFC</div>
+                                <div class="transaction-time">
+                                    <i class="far fa-clock"></i> Today, 14:45
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <div class="transaction-content">
+                                <div class="transaction-title">Nhân viên sale quần áo</div>
+                                <div class="transaction-time">
+                                    <i class="far fa-clock"></i> Yesterday, 16:08
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </div>
+                            <div class="transaction-content">
+                                <div class="transaction-title">Nhân viên sale bất động sản</div>
+                                <div class="transaction-time">
+                                    <i class="far fa-clock"></i> Yesterday, 16:08
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="transaction-card">
+                        <h3 class="section-title">Ứng viên gần đây</h3>
+                        <div class="transaction-item">
+                            <div class="transaction-icon">
+                                <img src="/images/candidate/candidate1.jpg" alt="Lisa Johnson" />
+                            </div>
+                            <div class="transaction-content">
+                                <div class="transaction-title">Anh Long</div>
+                                <div class="transaction-time">
+                                    <i class="far fa-clock"></i> Today, 09:35
+                                </div>
+                            </div>
+                        </div>
+                        <div class="transaction-item">
+                            <div class="transaction-icon">
+                                <img src="/images/candidate/candidate2.jpg" alt="Michael Torres" />
+                            </div>
+                            <div class="transaction-content">
+                                <div class="transaction-title">Ngô Bá Khá</div>
+                                <div class="transaction-time">
+                                    <i class="far fa-clock"></i> Monday, 17:45
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-sidebar">
+                <div class="savings-card">
+                    <h3 class="savings-title">Thống kê số lượng ứng tuyển tháng</h3>
+                    <div class="savings-amount">49</div>
+                    <div class="time-filter">
+                        <button class="time-option">Daily</button>
+                        <button class="time-option">Weekly</button>
+                        <button class="time-option active">Monthly</button>
+                        <button class="time-option">Annual</button>
+                    </div>
+                    <div class="chart-container">
+                        <svg class="chart" viewBox="0 0 300 100" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="gradientFill" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" stop-color="#4270F4" stop-opacity="0.7" />
+                                    <stop offset="100%" stop-color="#4270F4" stop-opacity="0.1" />
+                                </linearGradient>
+                            </defs>
+                            <path class="chart-line-path" d="M0,80 C20,70 40,30 60,60 C80,90 100,40 120,30 C140,20 160,50 180,20 C200,30 220,60 240,80 C260,60 280,40 300,60"></path>
+                            <path class="chart-area" d="M0,80 C20,70 40,30 60,60 C80,90 100,40 120,30 C140,20 160,50 180,20 C200,30 220,60 240,80 C260,60 280,40 300,60 L300,100 L0,100 Z"></path>
+                            <circle cx="180" cy="20" r="6" fill="#4270F4" stroke="#ffffff" stroke-width="3" />
+                        </svg>
+                    </div>
+                    <div class="timeline">
+                        <div class="month">Oct</div>
+                        <div class="month">Nov</div>
+                        <div class="month active">Dec</div>
+                        <div class="month">Jan</div>
+                        <div class="month">Feb</div>
+                        <div class="month">Mar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Placeholder cho các nội dung khác -->
+        <div class="content-section" id="recruitment">
+            <div class="dashboard-main">
+                <h3 class="section-title">Tin tuyển dụng</h3>
+                <div class="recruitment-table-container">
+                    <table class="recruitment-table">
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Tiêu đề</th>
+                            <th>Vị trí</th>
+                            <th>Ngày đăng</th>
+                            <th>Trạng thái</th>
+                            <th>Số lượng ứng viên</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Nhân viên bán KFC</td>
+                            <td>Nhân viên bán hàng</td>
+                            <td>2025-05-25</td>
+                            <td class="status active">Đang tuyển</td>
+                            <td>15</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Nhân viên sale quần áo</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>2025-05-20</td>
+                            <td class="status active">Đang tuyển</td>
+                            <td>8</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Nhân viên sale bất động sản</td>
+                            <td>Nhân viên kinh doanh</td>
+                            <td>2025-05-18</td>
+                            <td class="status closed">Đã đóng</td>
+                            <td>12</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Nhân viên chăm sóc khách hàng</td>
+                            <td>Chăm sóc khách hàng</td>
+                            <td>2025-05-15</td>
+                            <td class="status active">Đang tuyển</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Nhân viên chăm sóc khách hàng</td>
+                            <td>Chăm sóc khách hàng</td>
+                            <td>2025-05-15</td>
+                            <td class="status active">Đang tuyển</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Nhân viên chăm sóc khách hàng</td>
+                            <td>Chăm sóc khách hàng</td>
+                            <td>2025-05-15</td>
+                            <td class="status active">Đang tuyển</td>
+                            <td>5</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Nhân viên chăm sóc khách hàng</td>
+                            <td>Chăm sóc khách hàng</td>
+                            <td>2025-05-15</td>
+                            <td class="status active">Đang tuyển</td>
+                            <td>5</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="content-section" id="posts">
+            <div class="dashboard-main">
+                <h3 class="section-title">Bài viết</h3>
+                <p>Nội dung bài viết sẽ được hiển thị ở đây.</p>
+            </div>
+        </div>
+        <div class="content-section" id="messages">
+            <div class="dashboard-main">
+                <h3 class="section-title">Tin nhắn</h3>
+                <p>Nội dung tin nhắn sẽ được hiển thị ở đây.</p>
+            </div>
+        </div>
+        <div class="content-section" id="settings">
+            <div class="dashboard-main">
+                <h3 class="section-title">Cài đặt</h3>
+                <p>Nội dung cài đặt sẽ được hiển thị ở đây.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // JavaScript để xử lý chuyển đổi nội dung khi nhấp vào menu
+    const navItems = document.querySelectorAll('.nav-item');
+    const contentSections = document.querySelectorAll('.content-section');
+    const welcomeTitle = document.getElementById('welcome-title');
+
+    // Định nghĩa tiêu đề tương ứng cho từng danh mục
+    const titles = {
+        dashboard: 'Thống kê tuyển dụng của bạn',
+        candidates: 'Danh sách ứng viên',
+        recruitment: 'Tin tuyển dụng',
+        posts: 'Bài viết',
+        messages: 'Tin nhắn',
+        settings: 'Cài đặt'
+    };
+
+    navItems.forEach(item => {
+        item.addEventListener('click', function(e) {
+            e.preventDefault();
+
+            // Kiểm tra nếu là mục "Trang chủ", chuyển hướng
+            if (this.getAttribute('href') === '/home') {
+                window.location.href = '/home';
+                return;
+            }
+
+            // Xóa class active khỏi tất cả nav-item
+            navItems.forEach(nav => nav.classList.remove('active'));
+            // Thêm class active cho mục được nhấp
+            this.classList.add('active');
+
+            // Lấy id nội dung tương ứng
+            const contentId = this.getAttribute('data-content');
+
+            // Xóa class active khỏi tất cả section
+            contentSections.forEach(section => section.classList.remove('active'));
+            // Hiển thị section tương ứng
+            document.getElementById(contentId).classList.add('active');
+
+            // Cập nhật tiêu đề
+            welcomeTitle.textContent = titles[contentId];
+        });
+    });
+</script>
 </body>
 </html>

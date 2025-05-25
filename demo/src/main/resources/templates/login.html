@@ -77,6 +77,16 @@
               <i class="fas fa-lock"></i>
               <input type="password" name="password" placeholder="Password" />
             </div>
+
+
+            <div class="input-field">
+              <i class="fas fa-user-tag"></i>
+              <select class="select-role" name="role" required>
+                <option value="" disabled selected>Chọn vai trò</option>
+                <option value="user">Người dùng</option>
+                <option value="employer">Nhà tuyển dụng</option>
+              </select>
+            </div>
             <input type="submit" class="btn" value="Sign up" />
             <p class="social-text">Or Sign up with social platforms</p>
             <div class="social-media">
@@ -126,7 +136,7 @@
         </div>
       </div>
     </div>
- 
+
     <a href="/home" style="position: absolute; width: 100%; text-align: center;">Về trang chủ</a>
 
     <script src="/js/login.js"></script>

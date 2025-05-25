@@ -28,6 +28,6 @@ public class HomeController {
     public String getAllJobs(Model model) {
         List<JobPosting> jobs = jobPostingsService.getAllJobPostingsWithCompany();
         model.addAttribute("jobs", jobs);
-        return "job_list"; // Đây là tên file HTML trong thư mục templates (job_list.html)
+        return "job_list";
     }
 }
