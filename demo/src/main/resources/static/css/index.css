@@ -253,7 +253,7 @@ body {
   color: white;
 }
 
-.job-listings {
+.job-card-wrapper{
   display: grid;
   grid-template-columns: repeat(3, 1fr); /* 3 cột cố định */
   gap: 20px;

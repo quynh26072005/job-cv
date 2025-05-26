@@ -10,16 +10,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-public class JobPostingsDAO extends JDBCUtil {
+public class JobDAO extends JDBCUtil {
 
-    public List<JobPosting> findAllWithCompanyName() {
+    public List<JobPosting> findAllJobPostings() {
         List<JobPosting> postings = new ArrayList<>();
         String sql = """
-            SELECT j.job_id, j.job_title, j.employer_id, j.category_id, 
-                   e.company_name
-            FROM Job j
-            JOIN Employers e ON j.employer_id = e.employer_id
-        """;
+        SELECT * FROM Job_Postings
+    """;
 
         try (Connection conn = JDBCUtil.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql);
@@ -29,8 +26,13 @@ public class JobPostingsDAO extends JDBCUtil {
                 JobPosting job = new JobPosting();
                 job.setJobId(rs.getInt("job_id"));
                 job.setJobTitle(rs.getString("job_title"));
-                job.setEmployerId(rs.getInt("employer_id"));
+                job.setUserId(rs.getInt("user_id"));
                 job.setCategoryId(rs.getInt("category_id"));
+                job.setSalaryMin(rs.getDouble("salary_min"));
+                job.setSalaryMax(rs.getDouble("salary_max"));
+                job.setLocation(rs.getString("location"));
+                job.setDeadline(rs.getDate("deadline").toLocalDate());
+                job.setCompanyLogo(rs.getString("company_logo_url"));
                 job.setCompanyName(rs.getString("company_name"));
                 postings.add(job);
             }
@@ -41,4 +43,5 @@ public class JobPostingsDAO extends JDBCUtil {
 
         return postings;
     }
+
 }

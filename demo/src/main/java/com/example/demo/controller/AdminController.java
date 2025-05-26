@@ -13,7 +13,7 @@ public class AdminController {
     public String home(Model model, HttpSession session) {
 
         if (session.getAttribute("account") == null) {
-            return "redirect:/loginCompany";
+            return "redirect:/login";
         }
 
         // Kiểm tra quyền truy cập của người dùng

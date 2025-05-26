@@ -102,144 +102,35 @@
     </div>
 
     <div class="job-listings">
+        <a th:each="job : ${jobs}"  th:href="@{'/jobDetail?id=' + ${job.job.jobId}}" class="job-card">
+          <!-- Job Title & Company -->
+          <div class="job-title" th:text="${job.job.jobTitle}">Job Title</div>
+          <div class="job-company" th:text="${job.job.companyName}">Company Name</div>
 
-      <a href="/jobDetail" class="job-card">
-        <div class="job-title">Nhân Viên Bảo Trì Cơ Khí</div>
-        <div class="job-company">Công Ty TNHH Cheng Loong Bình Dương Paper</div>
-        <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between;">
-          <img src="/images/logo-company.png" style="max-width: 100px; " alt="Icon 1">
-          <div class="group-2">
-            <div class="job-salary">💰 9.5 - 13 triệu</div>
-            <div class="job-location">📍 Bình Dương</div>
-          </div>
-        </div>
-        <div class="job-footer">
-          <span>⏳ Còn 18 ngày</span>
-          <i class="fa-regular fa-heart"></i>
-        </div>
-      </a>
+          <!-- Logo & Info -->
+          <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between; align-items: center;">
+            <img th:src="@{${job.job.companyLogo}}" style="max-width: 100px;"
+                 th:alt="'Logo của ' + ${job.job.companyName}" alt="Company Logo">
 
-       <a href="/jobDetail" class="job-card">
-         <div class="job-title">Nhân Viên Thợ Điện Công Nghiệp</div>
-         <div class="job-company">Công Ty TNHH Cheng Loong Bình Dương Paper</div>
-        <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between;">
-          <img src="/images/logo-company1.webp" style="max-width: 100px; " alt="Icon 1">
-          <div class="group-2">
-            <div class="job-salary">💰 9.5 - 13 triệu</div>
-            <div class="job-location">📍 Bình Dương</div>
+            <div class="group-2">
+              <div class="job-salary"
+                   th:text="'💰 ' + ${job.job.salaryMin} + ' - ' + ${job.job.salaryMax} + ' triệu'">
+                💰 Salary
+              </div>
+              <div class="job-location"
+                   th:text="'📍 ' + ${job.job.location}">
+                📍 Location
+              </div>
           </div>
-        </div>
-        <div class="job-footer">
-          <span>⏳ Còn 18 ngày</span>
-          <i class="fa-regular fa-heart"></i>
-        </div>
-      </a>
-           <a href="/jobDetail" class="job-card">
-             <div class="job-title">Nhân Viên IT Hệ Thống</div>
-             <div class="job-company">Công Ty TNHH Cheng Loong Bình Dương Paper</div>
-        <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between;">
-          <img src="/images/logo-company2.png" style="max-width: 100px; " alt="Icon 1">
-          <div class="group-2">
-            <div class="job-salary">💰 9.5 - 13 triệu</div>
-            <div class="job-location">📍 Bình Dương</div>
-          </div>
-        </div>
-        <div class="job-footer">
-          <span>⏳ Còn 18 ngày</span>
-          <i class="fa-regular fa-heart"></i>
-        </div>
-      </a>
-      <a href="/jobDetail" class="job-card">
-        <div class="job-title">Nhân Viên Vận Hành Máy</div>
-        <div class="job-company">Công Ty TNHH Cheng Loong Bình Dương Paper</div>
-        <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between;">
-          <img src="/images/logo-company3.jpg" style="max-width: 100px; " alt="Icon 1">
-          <div class="group-2">
-            <div class="job-salary">💰 9.5 - 13 triệu</div>
-            <div class="job-location">📍 Bình Dương</div>
-          </div>
-        </div>
-        <div class="job-footer">
-          <span>⏳ Còn 18 ngày</span>
-          <i class="fa-regular fa-heart"></i>
-        </div>
-      </a>
-      <a href="/jobDetail" class="job-card">
-        <div class="job-title">Kỹ Sư Tự Động Hóa</div>
-        <div class="job-company">Công Ty TNHH Cheng Loong Bình Dương Paper</div>
-        <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between;">
-          <img src="/images/logo-company4.jpg" style="max-width: 100px; " alt="Icon 1">
-          <div class="group-2">
-            <div class="job-salary">💰 9.5 - 13 triệu</div>
-            <div class="job-location">📍 Bình Dương</div>
-          </div>
-        </div>
-        <div class="job-footer">
-          <span>⏳ Còn 18 ngày</span>
-          <i class="fa-regular fa-heart"></i>
-        </div>
-      </a>
-      <a href="/jobDetail" class="job-card">
-                 <div class="job-title">Nhân Viên QA/QC</div>
-                 <div class="job-company">Công Ty TNHH Cheng Loong Bình Dương Paper</div>
-        <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between;">
-          <img src="/images/logo-company5.png" style="max-width: 100px; " alt="Icon 1">
-          <div class="group-2">
-            <div class="job-salary">💰 9.5 - 13 triệu</div>
-            <div class="job-location">📍 Bình Dương</div>
-          </div>
-        </div>
-        <div class="job-footer">
-          <span>⏳ Còn 18 ngày</span>
-          <i class="fa-regular fa-heart"></i>
-        </div>
-      </a>
-      <a href="/jobDetail" class="job-card">
-        <div class="job-title">Nhân Viên Bảo Trì Cơ Khí</div>
-        <div class="job-company">Công Ty TNHH Cheng Loong Bình Dương Paper</div>
-        <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between;">
-          <img src="/images/logo-company6.png" style="max-width: 100px; " alt="Icon 1">
-          <div class="group-2">
-            <div class="job-salary">💰 9.5 - 13 triệu</div>
-            <div class="job-location">📍 Bình Dương</div>
-          </div>
-        </div>
-        <div class="job-footer">
-          <span>⏳ Còn 18 ngày</span>
-          <i class="fa-regular fa-heart"></i>
-        </div>
-      </a>
-      <a href="/jobDetail" class="job-card">
-                 <div class="job-title">Nhân Viên QA/QC</div>
-                 <div class="job-company">Công Ty TNHH Cheng Loong Bình Dương Paper</div>
-        <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between;">
-          <img src="/images/logo-company7.webp" style="max-width: 100px; " alt="Icon 1">
-          <div class="group-2">
-            <div class="job-salary">💰 9.5 - 13 triệu</div>
-            <div class="job-location">📍 Bình Dương</div>
-          </div>
-        </div>
-        <div class="job-footer">
-          <span>⏳ Còn 18 ngày</span>
-          <i class="fa-regular fa-heart"></i>
-        </div>
-      </a>
 
-      <a href="/jobDetail" class="job-card">
-        <div class="job-title">Nhân Viên QA/QC</div>
-        <div class="job-company">Công Ty TNHH Cheng Loong Bình Dương Paper</div>
-        <div class="group-1" style="display: flex; flex-direction: row; justify-content: space-between;">
-          <img src="/images/logo-company8.png" style="max-width: 100px; " alt="Icon 1">
-          <div class="group-2">
-            <div class="job-salary">💰 9.5 - 13 triệu</div>
-            <div class="job-location">📍 Bình Dương</div>
+            <!-- Footer -->
+            <div class="job-footer">
+              <span th:if="${job.daysLeft != null}" th:text="'⏳ Còn ' + ${job.daysLeft} + ' ngày'"></span>
+              <span th:unless="${job.daysLeft != null}" th:text="'⏳ Không có hạn'"></span>
+              <i class="fa-regular fa-heart"></i>
+            </div>
           </div>
-        </div>
-        <div class="job-footer">
-          <span>⏳ Còn 18 ngày</span>
-          <i class="fa-regular fa-heart"></i>
-        </div>
-      </a>
+        </a>
     </div>
   </div>
 </section>
