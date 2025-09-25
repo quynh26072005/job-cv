@@ -8,6 +8,122 @@
     <link rel="stylesheet" href="/css/jobDetail.css">
     <link rel="stylesheet" href="/icon/themify-icons/themify-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Overlay for modal effect */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Modal form styling */
+        .apply-form {
+            display: none;
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
+
+        .apply-form.show {
+            display: block;
+        }
+
+        .apply-form .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .apply-form h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .apply-form .job-info {
+            margin-bottom: 20px;
+        }
+
+        .apply-form .job-info strong {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .apply-form .job-info p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+
+        .apply-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .apply-form .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .apply-form .form-group input[type="text"],
+        .apply-form .form-group input[type="email"],
+        .apply-form .form-group input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .apply-form .form-group input[type="file"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .apply-form .form-group button {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .apply-form .form-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .apply-form .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #5b4eff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .apply-form .submit-button:hover {
+            background-color: #4a3ecc;
+        }
+    </style>
 </head>
 <body>
 <header class="main-header">
@@ -18,7 +134,6 @@
                 <a href="#">Cơ hội việc làm</a>
                 <div class="dropdown">
                     <a href="#">Công cụ ▼</a>
-                    <!-- dropdown nội dung nếu cần -->
                 </div>
                 <a href="#">Cẩm nang nghề nghiệp</a>
                 <div class="dropdown">
@@ -66,6 +181,40 @@
     </div>
 </section>
 
+<!-- Overlay and Modal Form -->
+<div class="overlay" id="overlay">
+    <section class="apply-form" id="applyForm">
+        <button class="close-btn" id="closeForm">✕</button>
+        <h3>Ứng tuyển vào vị trí</h3>
+        <div class="job-info">
+            <strong th:text="${job.jobTitle}">Nhân Viên Tư Vấn / Kinh Doanh Lương 10 - 15tr / tháng</strong>
+            <p th:text="${job.companyName}">Công Ty Cổ Phần Kinh Doanh F88</p>
+        </div>
+        <div class="form-group">
+            <label for="fullName">Họ và tên *</label>
+            <input type="text" id="fullName" name="fullName" value="Quick Young" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" value="onerenekton05@gmail.com" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Số điện thoại *</label>
+            <input type="tel" id="phone" name="phone" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="cvFile">CV ứng tuyển</label>
+            <input type="file" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx">
+            <button>Tải lên CV có sẵn</button>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="receiveUpdates" name="receiveUpdates" checked>
+            <label for="receiveUpdates">Nhận thông báo việc làm tương tự</label>
+        </div>
+        <button class="submit-button">Nộp hồ sơ ngay</button>
+    </section>
+</div>
+
 <section class="job-details">
     <div class="section-title">Thông tin chung</div>
     <div class="general-info">
@@ -79,7 +228,7 @@
         </div>
         <div class="info-item">
             <span>⏰</span>
-            <strong>Số lượng tuyển:</strong> <span th:text="'5'">5</span> <!-- Bạn cần thêm trường số lượng vào JobPosting nếu có -->
+            <strong>Số lượng tuyển:</strong> <span th:text="'5'">5</span>
         </div>
         <div class="info-item">
             <span>🏢</span>
@@ -139,6 +288,342 @@
     <p class="topcv">© 2025 TopCV. All rights reserved.</p>
 </footer>
 
-<script src="/js/slideshow.js"></script>
+<script>
+    const applyButton = document.querySelector('.apply-button');
+    const overlay = document.getElementById('overlay');
+    const applyForm = document.getElementById('applyForm');
+    const closeForm = document.getElementById('closeForm');
+
+    applyButton.addEventListener('click', function() {
+        overlay.style.display = 'flex';
+        applyForm.classList.add('show');
+    });
+
+    closeForm.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        applyForm.classList.remove('show');
+    });
+
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            overlay.style.display = 'none';
+            applyForm.classList.remove('show');
+        }
+    });
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TopCV - Create Your Professional CV</title>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/jobDetail.css">
+    <link rel="stylesheet" href="/icon/themify-icons/themify-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Overlay for modal effect */
+        .overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Modal form styling */
+        .apply-form {
+            display: none;
+            position: relative;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1001;
+        }
+
+        .apply-form.show {
+            display: block;
+        }
+
+        .apply-form .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .apply-form h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .apply-form .job-info {
+            margin-bottom: 20px;
+        }
+
+        .apply-form .job-info strong {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .apply-form .job-info p {
+            margin: 5px 0 0;
+            color: #666;
+        }
+
+        .apply-form .form-group {
+            margin-bottom: 15px;
+        }
+
+        .apply-form .form-group label {
+            display: block;
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .apply-form .form-group input[type="text"],
+        .apply-form .form-group input[type="email"],
+        .apply-form .form-group input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .apply-form .form-group input[type="file"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .apply-form .form-group button {
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        .apply-form .form-group input[type="checkbox"] {
+            margin-right: 5px;
+        }
+
+        .apply-form .submit-button {
+            width: 100%;
+            padding: 12px;
+            background-color: #5b4eff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .apply-form .submit-button:hover {
+            background-color: #4a3ecc;
+        }
+    </style>
+</head>
+<body>
+<header class="main-header">
+    <div class="container">
+        <div class="left-section">
+            <a href="/home"><img class="logo" src="/images/logo.png" alt="Logo"></a>
+            <nav class="main-nav">
+                <a href="#">Cơ hội việc làm</a>
+                <div class="dropdown">
+                    <a href="#">Công cụ ▼</a>
+                </div>
+                <a href="#">Cẩm nang nghề nghiệp</a>
+                <div class="dropdown">
+                    <a href="#">Miền Nam ▼</a>
+                </div>
+            </nav>
+        </div>
+
+        <div class="right-section">
+            <a href="login.html" class="login-link">Đăng ký/Đăng nhập</a>
+            <a href="#" class="employer-link">
+                <i class="fa-solid fa-briefcase"></i>
+                Nhà Tuyển Dụng
+            </a>
+        </div>
+    </div>
+</header>
+
+<section class="job-detail-card">
+    <div class="job-header">
+        <div class="job-logo">
+            <img th:src="@{${job.companyLogo}}" style="max-width: 50px;" th:alt="'Logo của ' + ${job.companyName}" alt="Company Logo">
+        </div>
+        <div>
+            <div class="job-title" th:text="${job.jobTitle}">Nhân Viên Kinh Doanh - Di Lắm Ngay</div>
+        </div>
+    </div>
+    <div class="job-info">
+        <div class="salary">
+            <span>💰</span> Mức lương: <span th:text="' ' + ${job.salaryMin} + ' - ' + ${job.salaryMax} + ' triệu'">15 - 20 triệu</span>
+        </div>
+        <div class="deadline">
+            <span>📅</span> Hạn nộp hồ sơ: <span th:text="${#temporals.format(job.deadline, 'dd/MM/yyyy')}">19/05/2025</span>
+        </div>
+        <div class="location">
+            <span>📍</span> Khu vực tuyển: <span th:text="${job.location}">TPHCM</span>
+        </div>
+    </div>
+    <div class="job-description">
+        <span th:text="${job.jobDescription != null ? job.jobDescription : '📢 Không có mô tả chi tiết'}">📢 Có cơ hội đánh đơn! Công việc đang rất được quan tâm! Ứng tuyển ngay để không bỏ cơ hội!!</span>
+    </div>
+    <div class="job-footer">
+        <button class="apply-button">Nộp hồ sơ</button>
+        <div class="update-time">Ngày cập nhật: <span th:text="${#temporals.format(job.deadline, 'dd/MM/yyyy HH:mm')}">17/05/2025 18:57</span></div>
+    </div>
+</section>
+
+<!-- Overlay and Modal Form -->
+<div class="overlay" id="overlay">
+    <section class="apply-form" id="applyForm">
+        <button class="close-btn" id="closeForm">✕</button>
+        <h3>Ứng tuyển vào vị trí</h3>
+        <div class="job-info">
+            <strong th:text="${job.jobTitle}">Nhân Viên Tư Vấn / Kinh Doanh Lương 10 - 15tr / tháng</strong>
+            <p th:text="${job.companyName}">Công Ty Cổ Phần Kinh Doanh F88</p>
+        </div>
+        <div class="form-group">
+            <label for="fullName">Họ và tên *</label>
+            <input type="text" id="fullName" name="fullName" value="Quick Young" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" value="onerenekton05@gmail.com" required>
+        </div>
+        <div class="form-group">
+            <label for="phone">Số điện thoại *</label>
+            <input type="tel" id="phone" name="phone" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="cvFile">CV ứng tuyển</label>
+            <input type="file" id="cvFile" name="cvFile" accept=".pdf,.doc,.docx">
+            <button>Tải lên CV có sẵn</button>
+        </div>
+        <div class="form-group">
+            <input type="checkbox" id="receiveUpdates" name="receiveUpdates" checked>
+            <label for="receiveUpdates">Nhận thông báo việc làm tương tự</label>
+        </div>
+        <button class="submit-button">Nộp hồ sơ ngay</button>
+    </section>
+</div>
+
+<section class="job-details">
+    <div class="section-title">Thông tin chung</div>
+    <div class="general-info">
+        <div class="info-item">
+            <span>📅</span>
+            <strong>Ngày đăng:</strong> <span th:text="${#temporals.format(job.deadline, 'dd/MM/yyyy')}">17/05/2025</span>
+        </div>
+        <div class="info-item">
+            <span>🎓</span>
+            <strong>Cấp bậc:</strong> <span th:text="'Chuyên viên - nhân viên'">Chuyên viên - nhân viên</span>
+        </div>
+        <div class="info-item">
+            <span>⏰</span>
+            <strong>Số lượng tuyển:</strong> <span th:text="'5'">5</span>
+        </div>
+        <div class="info-item">
+            <span>🏢</span>
+            <strong>Hình thức làm việc:</strong> <span th:text="'Toàn thời gian cố định'">Toàn thời gian cố định</span>
+        </div>
+        <div class="info-item">
+            <span>⭐</span>
+            <strong>Yêu cầu kinh nghiệm:</strong> <span th:text="'Được 1 năm'">Được 1 năm</span>
+        </div>
+        <div class="info-item">
+            <span>💼</span>
+            <strong>Ngành nghề:</strong> <span th:text="'Bán hàng - Kinh doanh / Ngân hàng / Bảo hiểm'">Bán hàng - Kinh doanh / Ngân hàng / Bảo hiểm</span>
+        </div>
+    </div>
+
+    <div class="job-description">
+        <div class="subsection-title">Mô tả công việc</div>
+        <ul>
+            <li th:each="description : ${#strings.arraySplit(job.jobDescription != null ? job.jobDescription : '', '\n')}" th:text="${description}">Tiếp nhận Data khách hàng có sẵn và tư vấn thuyết phục khách hàng sử dụng các gói định tín tại vị phòng, không đi thị trường.</li>
+        </ul>
+    </div>
+
+    <div class="benefits">
+        <div class="subsection-title">Ứng viên tại Siêu Việt sẽ được:</div>
+        <ul>
+            <li>Cung cấp 100% data, không cần tìm kiếm khách hàng.</li>
+            <li>Thu việc 100% lương cứng + hoa hồng + bảo hiểm đầy đủ lương.</li>
+            <li>Được trang bị máy tính, tài nghe, sim điện thoại, làm việc trên hệ thống CRM để liên hệ khách hàng.</li>
+            <li>Hỗ trợ xe nếu có đi công tác xa trong chương trình.</li>
+            <li>Tham gia các khóa học đào tạo về chuyên giao.</li>
+        </ul>
+    </div>
+</section>
+
+<footer>
+    <section class="footer-container">
+        <section class="About-me">
+            <h2>Về chúng tôi</h2>
+            <p>Top-cv - Website tuyển dụng việt làm</p>
+            <p>TopCV là nền tảng tuyển dụng hàng đầu tại Việt Nam, giúp kết nối ứng viên với nhà tuyển dụng một cách nhanh chóng và hiệu quả.</p>
+            <p>Chúng tôi cung cấp dịch vụ tạo CV chuyên nghiệp, giúp ứng viên nổi bật trong mắt nhà tuyển dụng.</p>
+        </section>
+        <section class="Infor">
+            <h2>Thông tin</h2>
+            <p>Cẩm nang nghề nghiệp</p>
+            <p>Điều khoản dịch vụ</p>
+            <p>Quy định bảo mật</p>
+            <p>Sơ đồ trang web</p>
+            <p>Chính sách dữ liệu cá nhân</p>
+        </section>
+        <section class="Contact">
+            <h2>Liên hệ</h2>
+            <p>Email:top-cv@gmail.com</p>
+            <p>Điện thoại: 0989742927</p>
+        </section>
+    </section>
+    <p class="topcv">© 2025 TopCV. All rights reserved.</p>
+</footer>
+
+<script>
+    const applyButton = document.querySelector('.apply-button');
+    const overlay = document.getElementById('overlay');
+    const applyForm = document.getElementById('applyForm');
+    const closeForm = document.getElementById('closeForm');
+
+    applyButton.addEventListener('click', function() {
+        overlay.style.display = 'flex';
+        applyForm.classList.add('show');
+    });
+
+    closeForm.addEventListener('click', function() {
+        overlay.style.display = 'none';
+        applyForm.classList.remove('show');
+    });
+
+    overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) {
+            overlay.style.display = 'none';
+            applyForm.classList.remove('show');
+        }
+    });
+</script>
 </body>
 </html>
