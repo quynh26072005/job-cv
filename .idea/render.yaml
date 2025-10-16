@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: job-cv
+    env: docker
+    plan: free
+    branch: main
+    rootDir: demo
+    dockerfilePath: demo/Dockerfile
+    autoDeploy: true
